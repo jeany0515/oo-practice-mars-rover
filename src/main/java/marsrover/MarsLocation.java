@@ -31,17 +31,19 @@ public class MarsLocation {
     }
 
     public void move() {
-        if(direction.equals("N")) {
-            point.increaseY();
-        }
-        if(direction.equals("S")) {
-            point.decreaseY();
-        }
-        if(direction.equals("E")) {
-            point.increaseX();
-        }
-        if(direction.equals("W")) {
-            point.decreaseX();
+        switch (direction) {
+            case "N":
+                point.increaseY();
+                break;
+            case "S":
+                point.decreaseY();
+                break;
+            case "E":
+                point.increaseX();
+                break;
+            case "W":
+                point.decreaseX();
+                break;
         }
     }
 

@@ -2,9 +2,6 @@ package marsrover;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MarsCarTest {
@@ -41,8 +38,7 @@ public class MarsCarTest {
         //given
         MarsLocation marsLocation = new MarsLocation();
         MarsCar marsCar = new MarsCar(marsLocation);
-        List<String> instructions = new ArrayList<>();
-        instructions.add("M");
+        String instructions = "M";
 
         //when
         MarsLocation actual = marsCar.execute(instructions);
@@ -59,8 +55,7 @@ public class MarsCarTest {
         String direction = "S";
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
-        List<String> instructions = new ArrayList<>();
-        instructions.add("M");
+        String instructions = "M";
 
         //when
         MarsLocation actual = marsCar.execute(instructions);
@@ -77,8 +72,7 @@ public class MarsCarTest {
         String direction = "W";
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
-        List<String> instructions = new ArrayList<>();
-        instructions.add("M");
+        String instructions = "M";
 
         //when
         MarsLocation actual = marsCar.execute(instructions);
@@ -95,8 +89,7 @@ public class MarsCarTest {
         String direction = "E";
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
-        List<String> instructions = new ArrayList<>();
-        instructions.add("M");
+        String instructions = "M";
 
         //when
         MarsLocation actual = marsCar.execute(instructions);
@@ -110,8 +103,7 @@ public class MarsCarTest {
     void should_return_00W_when_init_mars_car_given_init_location_and_command_L() {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
-        List<String> instructions = new ArrayList<>();
-        instructions.add("L");
+        String instructions = "L";
 
         //when
         MarsLocation actual = marsCar.execute(instructions);
@@ -125,8 +117,7 @@ public class MarsCarTest {
     void should_return_00E_when_init_mars_car_given_init_location_and_command_R() {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
-        List<String> instructions = new ArrayList<>();
-        instructions.add("R");
+        String instructions = "R";
 
         //when
         MarsLocation actual = marsCar.execute(instructions);
@@ -140,11 +131,7 @@ public class MarsCarTest {
     void should_return_02S_when_init_mars_car_given_init_location_and_command_MMRR() {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
-        List<String> instructions = new ArrayList<>();
-        instructions.add("M");
-        instructions.add("M");
-        instructions.add("R");
-        instructions.add("R");
+        String instructions = "MMRR";
 
         //when
         MarsLocation actual = marsCar.execute(instructions);

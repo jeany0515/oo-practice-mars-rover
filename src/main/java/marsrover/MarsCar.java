@@ -1,7 +1,5 @@
 package marsrover;
 
-import java.util.List;
-
 public class MarsCar {
     private final MarsLocation location;
 
@@ -13,18 +11,19 @@ public class MarsCar {
         return location;
     }
 
-    public MarsLocation execute(List<String> instructions) {
-        instructions.forEach(instruction -> {
-            if(instruction.equals("M")) {
+    public MarsLocation execute(String instructions) {
+        for (int i = 0; i < instructions.length(); i++) {
+            char instruction = instructions.charAt(i);
+            if(instruction == 'M') {
                 location.move();
             }
-            if(instruction.equals("L")) {
+            if(instruction == 'L') {
                 location.turnLeft();
             }
-            if(instruction.equals("R")) {
+            if(instruction == 'R') {
                 location.turnRight();
             }
-        });
+        }
         return location;
     }
 }

@@ -2,6 +2,9 @@ package marsrover;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MarsCarTest {
@@ -38,10 +41,11 @@ public class MarsCarTest {
         //given
         MarsLocation marsLocation = new MarsLocation();
         MarsCar marsCar = new MarsCar(marsLocation);
-        String instruction = "M";
+        List<String> instructions = new ArrayList<>();
+        instructions.add("M");
 
         //when
-        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation actual = marsCar.execute(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,1), "N");
 
         //then
@@ -55,10 +59,11 @@ public class MarsCarTest {
         String direction = "S";
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
-        String instruction = "M";
+        List<String> instructions = new ArrayList<>();
+        instructions.add("M");
 
         //when
-        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation actual = marsCar.execute(instructions);
         MarsLocation expected = new MarsLocation(new Point(1,1), direction);
 
         //then
@@ -72,10 +77,11 @@ public class MarsCarTest {
         String direction = "W";
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
-        String instruction = "M";
+        List<String> instructions = new ArrayList<>();
+        instructions.add("M");
 
         //when
-        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation actual = marsCar.execute(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,2), direction);
 
         //then
@@ -89,10 +95,11 @@ public class MarsCarTest {
         String direction = "E";
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
-        String instruction = "M";
+        List<String> instructions = new ArrayList<>();
+        instructions.add("M");
 
         //when
-        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation actual = marsCar.execute(instructions);
         MarsLocation expected = new MarsLocation(new Point(2,2), direction);
 
         //then
@@ -103,10 +110,11 @@ public class MarsCarTest {
     void should_return_00W_when_init_mars_car_given_init_location_and_command_L() {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
-        String instruction = "L";
+        List<String> instructions = new ArrayList<>();
+        instructions.add("L");
 
         //when
-        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation actual = marsCar.execute(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,0), "W");
 
         //then
@@ -117,11 +125,30 @@ public class MarsCarTest {
     void should_return_00E_when_init_mars_car_given_init_location_and_command_R() {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
-        String instruction = "R";
+        List<String> instructions = new ArrayList<>();
+        instructions.add("R");
 
         //when
-        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation actual = marsCar.execute(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,0), "E");
+
+        //then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void should_return_02S_when_init_mars_car_given_init_location_and_command_MMRR() {
+        //given
+        MarsCar marsCar = new MarsCar(new MarsLocation());
+        List<String> instructions = new ArrayList<>();
+        instructions.add("M");
+        instructions.add("M");
+        instructions.add("R");
+        instructions.add("R");
+
+        //when
+        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation expected = new MarsLocation(new Point(0,2), "S");
 
         //then
         assertEquals(expected, actual);

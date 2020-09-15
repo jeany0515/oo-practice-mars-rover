@@ -2,7 +2,7 @@ package marsrover;
 
 public class MarsLocation {
     private final Point point;
-    private final String direction;
+    private String direction;
 
     public MarsLocation(Point point, String direction) {
         this.point = point;
@@ -27,7 +27,7 @@ public class MarsLocation {
 
     @Override
     public int hashCode() {
-        return point.hashCode() + point.hashCode();
+        return point.hashCode() + direction.hashCode();
     }
 
     public void changePoint() {
@@ -42,6 +42,30 @@ public class MarsLocation {
         }
         if(direction.equals("W")) {
             point.decreaseX();
+        }
+    }
+
+    public void changeDirectionLeft() {
+        if(direction.equals("N")) {
+            direction = "W";
+        } else if(direction.equals("W")) {
+            direction = "S";
+        } else if(direction.equals("S")) {
+            direction = "E";
+        } else if(direction.equals("E")) {
+            direction = "N";
+        }
+    }
+
+    public void changeDirectionRight() {
+        if(direction.equals("N")) {
+            direction = "E";
+        } else if(direction.equals("E")) {
+            direction = "S";
+        } else if(direction.equals("S")) {
+            direction = "W";
+        } else if(direction.equals("W")) {
+            direction = "N";
         }
     }
 }

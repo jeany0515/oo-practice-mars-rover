@@ -98,4 +98,32 @@ public class MarsCarTest {
         //then
         assertEquals(expected, actual);
     }
+
+    @Test
+    void should_return_00W_when_init_mars_car_given_init_location_and_command_L() {
+        //given
+        MarsCar marsCar = new MarsCar(new MarsLocation());
+        String instruction = "L";
+
+        //when
+        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation expected = new MarsLocation(new Point(0,0), "W");
+
+        //then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void should_return_00E_when_init_mars_car_given_init_location_and_command_R() {
+        //given
+        MarsCar marsCar = new MarsCar(new MarsLocation());
+        String instruction = "R";
+
+        //when
+        MarsLocation actual = marsCar.execute(instruction);
+        MarsLocation expected = new MarsLocation(new Point(0,0), "E");
+
+        //then
+        assertEquals(expected, actual);
+    }
 }

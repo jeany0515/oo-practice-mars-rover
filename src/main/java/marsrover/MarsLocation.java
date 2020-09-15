@@ -30,7 +30,7 @@ public class MarsLocation {
         return point.hashCode() + direction.hashCode();
     }
 
-    public void changePoint() {
+    public void move() {
         if(direction.equals("N")) {
             point.increaseY();
         }
@@ -45,27 +45,37 @@ public class MarsLocation {
         }
     }
 
-    public void changeDirectionLeft() {
-        if(direction.equals("N")) {
-            direction = "W";
-        } else if(direction.equals("W")) {
-            direction = "S";
-        } else if(direction.equals("S")) {
-            direction = "E";
-        } else if(direction.equals("E")) {
-            direction = "N";
+    public void turnLeft() {
+        switch (direction) {
+            case "N":
+                direction = "W";
+                break;
+            case "W":
+                direction = "S";
+                break;
+            case "S":
+                direction = "E";
+                break;
+            case "E":
+                direction = "N";
+                break;
         }
     }
 
-    public void changeDirectionRight() {
-        if(direction.equals("N")) {
-            direction = "E";
-        } else if(direction.equals("E")) {
-            direction = "S";
-        } else if(direction.equals("S")) {
-            direction = "W";
-        } else if(direction.equals("W")) {
-            direction = "N";
+    public void turnRight() {
+        switch (direction) {
+            case "N":
+                direction = "E";
+                break;
+            case "E":
+                direction = "S";
+                break;
+            case "S":
+                direction = "W";
+                break;
+            case "W":
+                direction = "N";
+                break;
         }
     }
 }

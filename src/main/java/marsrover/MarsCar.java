@@ -16,13 +16,13 @@ public class MarsCar {
     public MarsLocation execute(List<String> instructions) {
         instructions.forEach(instruction -> {
             if(instruction.equals("M")) {
-                location.changePoint();
+                location.move();
             }
             if(instruction.equals("L")) {
-                location.changeDirectionLeft();
+                location.turnLeft();
             }
             if(instruction.equals("R")) {
-                location.changeDirectionRight();
+                location.turnRight();
             }
         });
         return location;

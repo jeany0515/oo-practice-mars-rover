@@ -10,4 +10,11 @@ public class MarsCar {
     public MarsLocation getLocation() {
         return location;
     }
+
+    public MarsLocation execute(String instruction) {
+        if(instruction.equals("M")) {
+            location.changePoint();
+        }
+        return location;
+    }
 }

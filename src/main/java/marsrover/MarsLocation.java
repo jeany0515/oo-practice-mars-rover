@@ -30,4 +30,18 @@ public class MarsLocation {
         return point.hashCode() + point.hashCode();
     }
 
+    public void changePoint() {
+        if(direction.equals("N")) {
+            point.increaseY();
+        }
+        if(direction.equals("S")) {
+            point.decreaseY();
+        }
+        if(direction.equals("E")) {
+            point.increaseX();
+        }
+        if(direction.equals("W")) {
+            point.decreaseX();
+        }
+    }
 }

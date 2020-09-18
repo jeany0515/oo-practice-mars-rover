@@ -30,7 +30,7 @@ public class MarsLocation {
         return point.hashCode() + direction.hashCode();
     }
 
-    public void move() {
+    public void changePoint() {
         switch (direction) {
             case "N":
                 point.increaseY();
@@ -47,7 +47,7 @@ public class MarsLocation {
         }
     }
 
-    public void turnLeft() {
+    public void changeDirectionLeft() {
         switch (direction) {
             case "N":
                 direction = "W";
@@ -64,7 +64,7 @@ public class MarsLocation {
         }
     }
 
-    public void turnRight() {
+    public void changeDirectionRight() {
         switch (direction) {
             case "N":
                 direction = "E";

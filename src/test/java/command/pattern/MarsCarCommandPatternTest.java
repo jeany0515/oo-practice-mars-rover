@@ -12,9 +12,10 @@ public class MarsCarCommandPatternTest {
         MarsLocation marsLocation = new MarsLocation();
         MarsCar marsCar = new MarsCar(marsLocation);
         String instructions = "M";
+        CommandReceiver commandReceiver = new CommandReceiver(marsCar);
 
         //when
-        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation actual = commandReceiver.receive(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,1), "N");
 
         //then
@@ -29,9 +30,10 @@ public class MarsCarCommandPatternTest {
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
         String instructions = "M";
+        CommandReceiver commandReceiver = new CommandReceiver(marsCar);
 
         //when
-        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation actual = commandReceiver.receive(instructions);
         MarsLocation expected = new MarsLocation(new Point(1,1), direction);
 
         //then
@@ -46,9 +48,10 @@ public class MarsCarCommandPatternTest {
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
         String instructions = "M";
+        CommandReceiver commandReceiver = new CommandReceiver(marsCar);
 
         //when
-        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation actual = commandReceiver.receive(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,2), direction);
 
         //then
@@ -63,9 +66,10 @@ public class MarsCarCommandPatternTest {
         MarsLocation marsLocation = new MarsLocation(point, direction);
         MarsCar marsCar = new MarsCar(marsLocation);
         String instructions = "M";
+        CommandReceiver commandReceiver = new CommandReceiver(marsCar);
 
         //when
-        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation actual = commandReceiver.receive(instructions);
         MarsLocation expected = new MarsLocation(new Point(2,2), direction);
 
         //then
@@ -77,9 +81,10 @@ public class MarsCarCommandPatternTest {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
         String instructions = "L";
+        CommandReceiver commandReceiver = new CommandReceiver(marsCar);
 
         //when
-        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation actual = commandReceiver.receive(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,0), "W");
 
         //then
@@ -91,9 +96,10 @@ public class MarsCarCommandPatternTest {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
         String instructions = "R";
+        CommandReceiver commandReceiver = new CommandReceiver(marsCar);
 
         //when
-        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation actual = commandReceiver.receive(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,0), "E");
 
         //then
@@ -105,9 +111,10 @@ public class MarsCarCommandPatternTest {
         //given
         MarsCar marsCar = new MarsCar(new MarsLocation());
         String instructions = "MMRR";
+        CommandReceiver commandReceiver = new CommandReceiver(marsCar);
 
         //when
-        MarsLocation actual = marsCar.execute(instructions);
+        MarsLocation actual = commandReceiver.receive(instructions);
         MarsLocation expected = new MarsLocation(new Point(0,2), "S");
 
         //then
